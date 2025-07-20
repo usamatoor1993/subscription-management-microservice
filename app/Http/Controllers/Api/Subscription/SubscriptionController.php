@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Subscription\SubscribeRequest;
 use App\Actions\Subscription\CreateSubscriptionAction;
 use App\Models\Subscription;
-use App\Http\Resources\Subscription\SubscriptionResource;
+use App\Http\Resources\SubscriptionResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Throwable;
@@ -61,8 +61,15 @@ class SubscriptionController extends Controller
      */
     public function allSubscriptions()
     {
+        // dd(auth()->user()->role);
+    //     dd([
+    //     'user_id' => auth()->id(),
+    //     'role' => auth()->user()->role,
+    //     'policy_check' => auth()->user()->can('viewAny', \App\Models\Subscription::class)
+    // ]);
+
         try {
-            Gate::authorize('admin-only');
+          $this->authorize('viewAny', Subscription::class);
 
             $subscriptions = Subscription::with('user')
                 ->latest()

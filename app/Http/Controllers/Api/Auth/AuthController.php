@@ -11,8 +11,11 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+
     public function register(RegisterRequest $request, RegisterAction $action)
     {
+
+
         $result = $action->handle(
             name: $request->name,
             email: $request->email,
@@ -24,6 +27,8 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request, LoginAction $action)
     {
+
+
         $result = $action->handle(
             email: $request->email,
             password: $request->password

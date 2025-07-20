@@ -20,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
     }) ->withProviders([
         App\Providers\EventServiceProvider::class,
         App\Providers\GateServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
         SanctumServiceProvider::class, 
 
     ])->create();
