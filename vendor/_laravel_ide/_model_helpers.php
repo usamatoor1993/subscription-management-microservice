@@ -5,8 +5,24 @@ namespace App\Models {
     /**
      * App\Models\NotificationLog
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property string $sent_at
+     * @property string|null $message
+     * @property string $type
+     * @property mixed $subscription_id
+     * @property mixed $user_id
+     * @property int $id
      * @property-read \App\Models\User $user
      * @property-read \App\Models\Subscription $subscription
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereSubscriptionId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereType($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereMessage($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereSentAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<NotificationLog>|NotificationLog query()
@@ -306,7 +322,21 @@ namespace App\Models {
     /**
      * App\Models\RenewalLog
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property string|null $message
+     * @property string $run_at
+     * @property string $status
+     * @property mixed $subscription_id
+     * @property int $id
      * @property-read \App\Models\Subscription $subscription
+     * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog whereSubscriptionId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog whereStatus($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog whereRunAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog whereMessage($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<RenewalLog>|RenewalLog query()
@@ -606,7 +636,25 @@ namespace App\Models {
     /**
      * App\Models\Subscription
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property bool $auto_renew
+     * @property bool $is_active
+     * @property string $end_date
+     * @property string $start_date
+     * @property string $plan_name
+     * @property mixed $user_id
+     * @property int $id
      * @property-read \App\Models\User $user
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription wherePlanName($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereStartDate($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereEndDate($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereIsActive($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereAutoRenew($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Subscription>|Subscription query()
@@ -914,6 +962,10 @@ namespace App\Models {
      * @property string $email
      * @property string $name
      * @property int $id
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Subscription> $subscriptions
+     * @property-read int|null $subscriptions_count
+     * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
+     * @property-read int|null $tokens_count
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
      * @property-read int|null $notifications_count
      * @method static \Illuminate\Database\Eloquent\Builder<User>|User whereId($value)
