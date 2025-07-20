@@ -18,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     }) ->withProviders([
+        App\Providers\EventServiceProvider::class,
         App\Providers\GateServiceProvider::class,
         SanctumServiceProvider::class, 
 
