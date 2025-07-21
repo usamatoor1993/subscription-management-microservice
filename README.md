@@ -31,7 +31,7 @@ A Laravel 12-based backend microservice to manage user subscriptions, built as p
 ## 🧑‍💻 Installation & Setup
 
 ```bash
-git clone <repo>
+git clone https://github.com/usamatoor1993/subscription-management-microservice
 cd subscription-management-microservice
 
 composer install
